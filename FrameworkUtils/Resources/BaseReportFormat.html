@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TestNG Report</title>
+<style type="text/css">
+table {
+	margin-bottom: 10px;
+	border-collapse: collapse;
+	empty-cells: show
+}
+
+th, td {
+	border: 1px solid #009;
+	padding: .25em .5em
+}
+
+th {
+	vertical-align: bottom
+}
+
+td {
+	vertical-align: top
+}
+
+table a {
+	font-weight: bold
+}
+
+th {
+    background-color: #ccf3ff;
+
+}
+
+.num {
+	text-align: right
+}
+
+.passedodd td {
+	background-color: #3F3
+}
+
+.passedeven td {
+	background-color: #0A0
+}
+
+.skippedodd td {
+	background-color: #DDD
+}
+
+.skippedeven td {
+	background-color: #CCC
+}
+
+.failedodd td, .attn {
+	background-color: #F33
+}
+
+.failedeven td, .stripe .attn {
+	background-color: #D00
+}
+
+.stacktrace {
+	white-space: pre;
+	font-family: monospace
+}
+
+.totop {
+	font-size: 85%;
+	text-align: center;
+	border-bottom: 2px solid #000
+}
+
+.tobottom {
+	font-size: 85%;
+	text-align: center;
+	border-bottom: 2px solid #000
+}
+</style>
+
+<script> 
+			 function toggleMenu(objID) { 
+				 if (!document.getElementById) return; 
+				 var ob = document.getElementById(objID).style; 
+				 if(ob.display === 'none') { 
+					 try { 
+						 ob.display='table-row-group'; 
+					 } catch(ex) { 
+						 ob.display='block'; 
+					 } 
+				 } 
+				 else { 
+					 ob.display='none'; 
+				 } 
+			 } 
+			 function toggleSubMenu(objId) { 
+				 for(i=1; i<10000; i++) { 
+					 var ob = document.getElementById(objId.concat(i)); 
+					 if(ob === null) { 
+						 break; 
+					 } 
+					 if(ob.style.display === 'none') { 
+						 try { 
+							 ob.style.display='table-row'; 
+						 } catch(ex) { 
+							 ob.style.display='block'; 
+						 } 
+					 } 
+					 else { 
+						 ob.style.display='none'; 
+					 } 
+				 } 
+			 } 
+		 </script> 
+</head>
+
+<tr><center><b>TestNG_Custom_Report_Title</b></center></tr>
+<tr><center><b>Test_Case_Summary</b></center></tr>
+
+		
+</table >
+    <table id="summary" width="100%">
+      <thead>
+        <tr>
+          <th style="width:12.5%">Class</th>
+          <th style="width:7.5%">Start Time</th>
+          <th style="width:10%">Time Taken</th>
+		  <th style="width:40%">Message</th>
+		  <th style="width:10%">Execution Status</th>
+		  <th style="width:20%">Screenshot</th>
+        </tr>
+      </thead> 
+      Test_Case_Detail
+    </table>
+  </body>
+  </html>

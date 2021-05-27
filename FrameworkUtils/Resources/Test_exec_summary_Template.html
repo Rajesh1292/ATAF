@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Automation Test Execution Summary Report</title>
+
+	<style>
+		* {
+			margin: 0px; 
+			padding: 0px; 
+			box-sizing: border-box;
+		}
+
+		body, html {
+			height: 100%;
+			font-family: sans-serif;
+		}
+		.js-pscroll {
+		  position: relative;
+		  overflow: hidden;
+		}
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		a:hover 
+		{
+			 color:#00A0C6; 
+			 text-decoration:underline; 
+			 cursor:pointer;  
+		}
+		.container-test {
+		  width: 100%;
+		  height: 350px;
+		  background: #fff;
+		  display: -webkit-box;
+		  display: -webkit-flex;
+		  display: -moz-box;
+		  display: -ms-flexbox;
+		  display: flex;
+		  align-items: left;
+		  justify-content: center;
+		  flex-wrap: wrap;
+		  padding: 33px 30px;
+		}
+		.summarycontainertable {
+		  width: 100%;
+		  height: 170px;
+		  background: #fff;
+		  display: -webkit-box;
+		  display: -webkit-flex;
+		  display: -moz-box;
+		  display: -ms-flexbox;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  flex-wrap: wrap;
+		  padding: 33px 30px;
+		}
+		.buildcontainertable {
+		  width: 100%;
+		  height: 110px;
+		  background: #fff;
+		  display: -webkit-box;
+		  display: -webkit-flex;
+		  display: -moz-box;
+		  display: -ms-flexbox;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  flex-wrap: wrap;
+		  padding: 33px 30px;
+		  vertical-align: center;
+		}
+		.title {
+		  font-family: Lato-Bold;
+		  font-size: 22px;
+		  color: #00ad5f;
+		  line-height: 1.4;
+		  background-color: transparent;
+		  text-decoration: none;
+		}
+		.footerclass {
+		  font-family: Lato-Regular;
+		  font-size: 14px;
+		  color: #393939;
+		  line-height: 1.4;
+		  background-color: transparent;
+		  text-decoration: none;
+		  text-align: center;
+		}
+		.tableheading {
+		  font-family: Lato-Bold;
+		  font-size: 21px;
+		  color: #00ad5f;
+		  line-height: 1.4;
+		  background-color: transparent;
+		  text-align: left;
+		  text-decoration: none;
+		}
+		
+		
+
+		.suitesummary th {
+		  font-family: Lato-Bold;
+		  font-size: 16px;
+		  color: #393939;
+		  line-height: 1.4;
+		  background-color: transparent;
+		  text-align: left;
+		  height: 30px;
+		}
+	
+		.suitesummary td {
+		  font-family: Lato-Regular;
+		  font-size: 16px;
+		  color: #393939;
+		  line-height: 1.4;
+		  
+		}
+	
+	
+		.suitesummary {
+		 border-radius: 10px;
+		  overflow: hidden;
+		  box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.07);
+		  -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.07);
+		  -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.07);
+		  -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.07);
+		  -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.07);
+		}
+
+			
+		.wrap-table100 {
+		  width: 1100px;
+		}
+		.wrap-summary {
+		  width: 1100px;
+		 
+		}
+
+
+		table {
+		  width: 100%;
+		}
+
+		th, td {
+		  font-weight: unset;
+		  
+		}
+		.column1 {
+		  width: 30%;
+		  padding-left: 20px;
+		  
+		}
+
+		.column2 {	
+		  width: 10%;
+		  padding-left: 20px;
+		}
+
+		.column3 {
+		  width: 10%;
+		  padding-left: 20px;
+		}
+		.column4 {
+		  width: 10%;
+		  padding-left: 20px;
+		}
+		.column5 {
+		  width: 40%;
+		  padding-left: 20px;
+		}
+		.suitecolumnheader {
+		  width: 13%;
+		  padding-left: 20px;
+		}
+		.suitecolumndata {
+		  width: 21%;
+		  padding-left: 20px;
+		}
+		.buildcolumnheader {
+		  width: 6%;
+		  padding-left: 10px;
+		}
+		.buildcolumndata {
+		  width: 3%;
+		  padding-left: 10px;
+		}
+
+		.table100-head th {
+		  padding-top: 10px;
+		  padding-bottom: 10px;
+		  text-align: left;
+		  
+		}
+		.table100-body td {
+		  padding-top: 12px;
+		  padding-bottom: 12px;
+		}
+		.table100 {
+		  position: relative;
+		  padding-top: 40px;
+		}
+
+		.table100-head {
+		  position: absolute;
+		  width: 100%;
+		  top: 0;
+		  right: 0;
+		 
+		}
+
+		.table100-body {
+		  max-height: 220px;
+		  overflow: auto;
+		}
+		.table100.ver1 th {
+		  font-family: Lato-Bold;
+		  font-size: 18px;
+		  color: #fff;
+		  line-height: 1.4;
+
+		  background-color: #6c7ae0;
+		}
+
+		.table100.ver1 td {
+		  font-family: Lato-Regular;
+		  font-size: 15px;
+		  color: #808080;
+		  line-height: 1.4;
+		}
+
+		.table100.ver1 .table100-body tr:nth-child(even) {
+		  background-color: #f8f6ff;
+		}
+
+		/*---------------------------------------------*/
+
+		.table100.ver1 {
+		  border-radius: 10px;
+		  overflow: hidden;
+		  box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+		  -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+		  -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+		  -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+		  -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+		}
+		
+		.table100.ver2 .table100-head {
+			  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+			  -moz-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+			  -webkit-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+			  -o-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+			  -ms-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+			}
+
+			.table100.ver2 th {
+			  font-family: Lato-Bold;
+			  font-size: 18px;
+			  color: #00ad5f;
+			  line-height: 1.4;
+
+			  
+			}
+
+			.table100.ver2 td {
+			  font-family: Lato-Regular;
+			  font-size: 15px;
+			  color: #808080;
+			  line-height: 1.4;
+			}
+
+			.table100.ver2 .table100-body tr {
+			  border-bottom: 1px solid #f2f2f2;
+			}
+			.table100.ver2 {
+			  border-radius: 10px;
+			  overflow: hidden;
+			  box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+			  -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+			  -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+			  -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+			  -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+			}
+		.table100.ver3 {
+		  background-color: #393939;
+		  border-radius: 10px;
+		  overflow: hidden;
+		  box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+		  -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+		  -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+		  -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+		  -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+		}
+
+		.table100.ver3 th {
+		  font-family: Lato-Bold;
+		  font-size: 18px;
+		  color: #00ad5f;
+		  line-height: 1.4;
+		  text-transform: uppercase;
+		  background-color: #393939;
+		  
+		}
+
+		.table100.ver3 td {
+		  font-family: Lato-Regular;
+		  font-size: 15px;
+		  color: #808080;
+		  line-height: 1.4;
+		  background-color: #222222;
+		}
+		.limiter {
+		  width: 1366px;
+		  margin: 0 auto;
+		}
+		.passstats {
+		  font-family: Lato-Regular;
+		  font-size: 15px;
+		  color: green;
+		  padding-left: 20px;
+			
+		}
+		.failstats {
+		  font-family: Lato-Regular;
+		  font-size: 15px;
+		  color: red;
+		  padding-left: 20px;
+		}
+		.ignstats {
+		  font-family: Lato-Regular;
+		  font-size: 15px;
+		  color: orange;
+		  padding-left: 20px;
+		}
+		.m-b-110 {margin-bottom: 110px;}
+
+	</style>
+</head>
+	<body>
+	<h1 class="title" align="center">Automation Execution Report</h1>
+	<div class="limiter">
+		<div class="summarycontainertable">
+			<div class="wrap-summary">
+			<table><caption class="tableheading">Execution Details:</caption></table>
+				<div>
+					<table>
+						<thead>
+							<tr class="suitesummary">
+								<th class="suitecolumnheader">Application:</th>
+								<td class="suitecolumndata">$appname</td>
+								<th class="suitecolumnheader">Domain:</th>
+								<td class="suitecolumndata">$domname</td>
+								<th class="suitecolumnheader">Environment:</th>
+								<td class="suitecolumndata">$env</td>
+							</tr>
+							
+							<tr class="suitesummary">
+								<th class="suitecolumnheader">Exec Start Time:</th>
+								<td class="suitecolumndata">$startime</td>
+								<th class="suitecolumnheader">Exec End Time:</th>
+								<td class="suitecolumndata">$endtime</td>
+								<th class="suitecolumnheader">Duration:</th>
+								<td class="suitecolumndata">$duration</td>
+							</tr>
+							<tr class="suitesummary">
+								<th class="suitecolumnheader">TM Tool:</th>
+								<td class="suitecolumndata">$tmtool</td>
+								<th class="suitecolumnheader">ProjArea:</th>
+								<td class="suitecolumndata">$tmprojarea</td>
+								<th class="suitecolumnheader">DM Tool - Team:</th>
+								<td class="suitecolumndata">$dmtoolteam</td>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="buildcontainertable">
+			<div class="wrap-summary">
+			<table><caption class="tableheading">Test Execution Summary</caption></table>
+				<div>
+					<table>
+						<thead>
+							<tr class="suitesummary">
+								<th class="buildcolumnheader">TestSuite ID:</th>
+								<td class="buildcolumndata"><a href="$tsidhref">$tsid</a></td>
+								<th class="buildcolumnheader">Pass%:</th>
+								<td class="buildcolumndata">$passper %</td>
+								<th class="buildcolumnheader">Passed#:</th>
+								<td class="buildcolumndata">$passcnt</td>
+								<th class="buildcolumnheader">Failed#:</th>
+								<td class="buildcolumndata">$failcnt</td>
+								<th class="buildcolumnheader">Ignored#:</th>
+								<td class="buildcolumndata">$igncnt</td>
+								<th class="buildcolumnheader">Total#:</th>
+								<td class="buildcolumndata">$totcnt</td>
+								<th class="buildcolumnheader">Defects #:</th>
+								<td class="buildcolumndata">$defcnt</td>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="container-test">
+			<div class="wrap-table100">
+			<table><caption class="tableheading">Test Results</caption></table>
+				<div class="table100 ver2 m-b-110">
+					<div class="table100-head">
+						<table>
+							<tbody>
+								<tr>
+									<th class="column1">Test Case Name</th>
+									<th class="column2">Iteration#</th>
+									<th class="column3">Status</th>
+									<th class="column4">Defects</th>
+									<th class="column5">Comments</th>
+									
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+								$tcdetbody
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footerclass">
+	  <p>Created by: System - CT triggered by uDeploy/Octopus  |  For Queries, Reach out to: <a href="mailto:DevSecOps@aetna.com">DevSecOps@aetna.com</a></p>
+	</footer>		
+	</body>
+	
+</html>
